@@ -10,13 +10,7 @@ const RABBIT_ROUTING_KEY = "client.created";
 export async function clientCreatedEvent(client) {
     try {
         console.log("📡 Conectando a RabbitMQ...");
-        const connection = await amqp.connect({
-            protocol: 'amqp',
-            hostname: process.env.RABBIT_HOST || 'rabbitmq',
-            port: 5672,
-            username: process.env.RABBIT_USER || 'admin',
-            password: process.env.RABBIT_PASS || 'admin'
-        });
+        const connection = await amqp.connect("amqps://sfnbytcx:mReKqVp2EW9xO1iebiuIpNayQzc-ZTfj@albatross.rmq.cloudamqp.com/sfnbytcx");
         const channel = await connection.createChannel();
 
         // Declarar el exchange
